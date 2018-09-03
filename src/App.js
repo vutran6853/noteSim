@@ -1,31 +1,29 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {  Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import router from './routes';
+import Header from './component/Header/header';
+import {Provider}  from 'react-redux';
+import store from './ducks/store';
+import House from './component/Dashboard/house';
+import Dashboard from './component/Dashboard/dashboard';
+
 
 class App extends Component {
   render() {
     return (
-     
+      <Provider store={ store }>
+
         <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to Zip Zip</h1>
-          </header>
-
-
-
-          <Link to='/'>
-            <p>DashBoard</p>
-          </Link>
-          <Link to='/Wizard' >
-            <p>Wizard</p>
-          </Link>
+          <Header/>
+          <Dashboard/>
 
           { router }
         </div>
-     
+        
+      </Provider>
+
       
     );
   }

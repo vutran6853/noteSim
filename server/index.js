@@ -18,6 +18,9 @@ app.use(json());
 
 // ENDPOINT SET-UP
 app.get('/api/house', controller.getAll);
+app.post('/api/house', controller.register)
+app.delete('/api/house/:id', controller.remove)
+
 
 app.listen(port, () => {
   console.log(`Server is UP and listening on prot ${port}`);
